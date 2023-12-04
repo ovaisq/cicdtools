@@ -3,7 +3,7 @@
 
 Requires:
     1. A GCP Service Account key with appropriate permissions
-    2. An valid Worklete Org ID
+    2. An valid Company Org ID
 
 e.g. ./fs_users_in_org.py --cred-json xxxxxx.json --org-id ZQO3tY6eMPV1NsJUmncI
 """
