@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ATL_API_TOKEN_EMAIL, ATL_API_TOKEN, and CICD_GITHUB_TOKEN are defined here:
-#  http://qa-jenkins-prod.company.roguewave.com:8080/configure
+#  http://qa-jenkins-prod.company.company.com:8080/configure
 
 GITHUB_API_URL="https://api.github.com"
 GITHUB_API_ROUTE="/repos/"
@@ -145,7 +145,7 @@ do
 		echo "Took longer than $SLEEP_TIMEOUT to update. Try again!"
 		exit -1
 	else
-		# ATL_API_* vars declared here http://qa-jenkins-prod.company.roguewave.com:8080/configure
+		# ATL_API_* vars declared here http://qa-jenkins-prod.company.company.com:8080/configure
 		status_code=$(curl --user "${ATL_API_TOKEN_EMAIL}":"${ATL_API_TOKEN}" -sI -XGET ""${URL}""${ATL_PLUGIN_KEY_PATH}""| head -n1| cut -d$' ' -f2)
 		echo "Installation in progress"
 		# Atlassian Cloud instance freaks out - 409s - if polled too frequent
@@ -162,7 +162,7 @@ rm -f ${ENV_FILE}
 echo "COMPANY_PLUGIN_VER = $COMPANY_PLUGIN_VER" > ${ENV_FILE}
 
 #register installed plugin before it can be used to create diagrams
-# ATL_PRIVATE_LISTING_TOKEN_GCC_2 is defined here http://qa-jenkins-prod.company.roguewave.com:8080/configure
+# ATL_PRIVATE_LISTING_TOKEN_GCC_2 is defined here http://qa-jenkins-prod.company.company.com:8080/configure
 echo "Register"
 curl --user "${ATL_API_TOKEN_EMAIL}":"${ATL_API_TOKEN}" -sq -XPOST "${URL}"/rest/plugins/1.0/license-tokens \
 -H 'Accept: */*' \
